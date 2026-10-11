@@ -50,10 +50,10 @@
       ],
       "id": "054ebc15-908b-468a-8e2d-696be0ec18fe",
       "name": "Get resume Metadata",
-      "webhookId": "6d7ed8fc-cc92-4275-aba9-73ea944eda59",
+      "webhookId": "",
       "credentials": {
         "githubApi": {
-          "id": "IWFRm4dvpSyeDeeA",
+          "id": "",
           "name": "GitHub account"
         }
       }
@@ -80,7 +80,7 @@
           "value": "rhHqRHEi7EwhIU2I8",
           "mode": "list",
           "cachedResultName": "LinkedIn Jobs & Search URL Scraper (vinay-ghate/linkedin-jobs-search-url-scraper)",
-          "cachedResultUrl": "https://console.apify.com/actors/rhHqRHEi7EwhIU2I8/input"
+          "cachedResultUrl": ""
         },
         "customBody": "{\n    \"countryName\": \"India\",\n    \"datePosted\": \"today\",\n    \"experienceLevel\": \"entry\",\n    \"fetchFullDescription\": true,\n    \"forceFresh\": false,\n    \"includeKeyword\": \"Backend Developer, Software Developer, AI Developer,  Agentic AI, Python\",\n    \"jobType\": \"FULLTIME\",\n    \"keywords\": [\n        \"Backend Developer\",\n        \"Software Developer\",\n        \"AI Developer\",\n        \"Python Developer\",\n        \"Generative AI Engineer\"\n    ],\n    \"locationName\": \"India\",\n    \"maxResults\": 20,\n    \"pagesToFetch\": 2,\n    \"workplaceType\": \"all\"\n}"
       },
@@ -95,7 +95,7 @@
       "alwaysOutputData": true,
       "credentials": {
         "apifyApi": {
-          "id": "XDoGbQzXobokSJGY",
+          "id": "",
           "name": "Apify account"
         }
       },
@@ -192,7 +192,7 @@
       "name": "OpenAI Chat Model",
       "credentials": {
         "openAiApi": {
-          "id": "bity9wVJlW9pxpIL",
+          "id": "",
           "name": "OpenAI account"
         }
       }
@@ -226,8 +226,8 @@
     },
     {
       "parameters": {
-        "fromEmail": "vsg0131@gmail.com",
-        "toEmail": "ghatevinay2@gmail.com",
+        "fromEmail": "",
+        "toEmail": "",
         "subject": "Daily Job Matches from LinkedIn",
         "html": "={{ $json.html }}",
         "options": {
@@ -242,10 +242,10 @@
       ],
       "id": "d336d88b-e31d-4273-a7e2-614be3473676",
       "name": "Send an Email",
-      "webhookId": "69146d76-7ceb-4dae-b717-7dbcdb65ce9b",
+      "webhookId": "",
       "credentials": {
         "smtp": {
-          "id": "obpTwhn0wfQM9IGw",
+          "id": "",
           "name": "SMTP account"
         }
       }
@@ -380,6 +380,6 @@
   "meta": {
     "instanceId": ""
   },
-  "id": "ZybWPBc5Om6PwkIL",
+  "id": "",
   "tags": []
 }
