@@ -102,14 +102,29 @@ The compilation and dashboard system dynamically discovers new tracks and varian
 
 ### Local LaTeX Compilation
 
-Compile any resume directly using your local LaTeX distribution (`TeX Live`, `MacTeX`, or `MiKTeX`):
+Compile any resume directly using your local LaTeX distribution (`TeX Live`, `MacTeX`, or `MiKTeX`). By default, a placeholder `+91-XXXXXXXXXX` will be used unless you pass your phone number:
 
+**With Environment Variable (Linux/macOS/Bash):**
 ```bash
-# Compile Dev resume
+export PHONE="+91-8605078054"
+
+cd Dev
+pdflatex "\def\phoneNumber{$PHONE}\input{2001.tex}"
+```
+
+**With Environment Variable (Windows PowerShell):**
+```powershell
+$env:PHONE = "+91-8605078054"
+
+cd Dev
+pdflatex "\def\phoneNumber{$($env:PHONE)}\input{2001.tex}"
+```
+
+**Standard compilation (uses default fallback placeholder):**
+```bash
 cd Dev
 pdflatex 2001.tex
 
-# Compile GenAI resumes
 cd ../GenAI
 pdflatex 1001.tex
 pdflatex 1005.tex

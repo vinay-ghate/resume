@@ -15,14 +15,37 @@ jobs:
       - name: Set up Git repository
         uses: actions/checkout@v4
 
-      # Step 2: Compile EVERY .tex file using the marketplace action
+      # Step 2: Inject phone number from GitHub Secret (if configured)
+      - name: Inject Secret Phone Number
+        env:
+          PHONE: ${{ secrets.PHONE || secrets.PHONE_NUMBER }}
+        shell: python
+        run: |
+          import os
+          import glob
+
+          phone = os.environ.get("PHONE", "").strip()
+          if phone:
+              print("Secret PHONE detected. Injecting into .tex files...")
+              for tex_path in glob.glob("**/*.tex", recursive=True):
+                  with open(tex_path, "r", encoding="utf-8") as f:
+                      content = f.read()
+                  new_content = content.replace("+91-XXXXXXXXXX", phone)
+                  if new_content != content:
+                      with open(tex_path, "w", encoding="utf-8") as f:
+                          f.write(new_content)
+                      print(f"Injected secret phone into {tex_path}")
+          else:
+              print("No PHONE secret configured. Building with fallback placeholder.")
+
+      # Step 3: Compile EVERY .tex file using the marketplace action
       - name: Compile All LaTeX files
         uses: xu-cheng/latex-action@v4
         with:
           root_file: "**/*.tex"
           glob_root_file: true
 
-      # Step 3: Organize and rename PDFs using a robust Python script
+      # Step 4: Organize and rename PDFs using a robust Python script
       - name: Rename and Move PDFs
         env:
           AUTHOR_PREFIX: "Vinay-Ghate"
@@ -64,7 +87,7 @@ jobs:
               print(f"Moving {pdf_path} (originally in {dir_name}) -> {target_path}")
               shutil.move(pdf_path, target_path)
 
-      # Step 4: Push all raw PDFs to the permanent Archive Release
+      # Step 5: Push all raw PDFs to the permanent Archive Release
       - name: Upload All to Permanent Release Archive
         uses: softprops/action-gh-release@v2
         with:
@@ -77,7 +100,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      # Step 5: Print the download dashboard link
+      # Step 6: Print the download dashboard link
       - name: Generate Direct Download Link
         run: |
           echo "### 📄 All PDFs Uploaded to Archive!" >> $GITHUB_STEP_SUMMARY
