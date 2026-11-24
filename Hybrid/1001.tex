@@ -1,0 +1,180 @@
+\documentclass[a4paper,10.5pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[margin=0.4in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[default]{sourcesanspro}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Section formatting without \scshape to prevent PDF small-caps glyph extraction bugs
+\titleformat{\section}
+  {\vspace{-7pt}\bfseries\raggedright\large}
+  {}
+  {0em}
+  {\MakeUppercase}
+  [\color{black}\titlerule \vspace{-5pt}]
+
+\newcommand{\resumeItem}[2]{
+  \item\small{
+    \textbf{#1}{: #2 \vspace{-1pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-1pt}\item
+  \begin{tabular*}{0.98\textwidth}[t]{l@{\extracolsep{\fill}}r}
+    \textbf{#1} & #2 \\
+    \textit{\small#3} & \textit{\small #4} \\
+  \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+  \item
+  \begin{tabular*}{0.98\textwidth}{l@{\extracolsep{\fill}}r}
+    \small#1 & \small#2 \\
+  \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.12in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0.15in]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-3pt}}
+
+\newcommand{\dv}[1]{#1}
+
+\newcommand{\fullName}{Vinay Ghate}
+\newcommand{\cityCountry}{Pune, India}
+\newcommand{\phoneNumber}{+91 86050 78054}
+\newcommand{\emailAddr}{ghatevinay2@gmail.com}
+\newcommand{\linkedinUrl}{https://www.linkedin.com/in/vinay-ghate}
+\newcommand{\githubUrl}{https://github.com/vinay-ghate}
+\newcommand{\portfolioUrl}{https://v1nay.is-a.dev}
+
+\begin{document}
+
+%----------HEADER-----------------
+\begin{center}
+  {\fontsize{24}{28}\selectfont\bfseries \MakeUppercase{\fullName}} \\[4pt]
+  \small
+  \cityCountry \ $|$ \
+  \href{tel:+918605078054}{\phoneNumber} \ $|$ \
+  \href{mailto:\emailAddr}{\emailAddr} \ $|$ \
+  \href{\linkedinUrl}{linkedin.com/in/vinay-ghate} \ $|$ \
+  \href{\githubUrl}{github.com/vinay-ghate} \ $|$ \
+  \href{\portfolioUrl}{v1nay.is-a.dev}
+\end{center}
+\vspace{-8pt}
+
+%-----------SUMMARY-----------------
+\section{Summary}
+\small{
+  Python Backend \& Generative AI Engineer with 2 years of experience at TCS building event-driven distributed systems and production agentic/RAG workflows. Combines strong backend fundamentals (Apache Kafka, Kubernetes, REST APIs, PostgreSQL, caching, mTLS, observability) with hands-on LLM engineering (Model Context Protocol agents, LangGraph, hybrid retrieval, and cross-encoder reranking).
+}
+
+%-----------SKILLS-----------------
+\section{Technical Skills}
+\begin{itemize}[leftmargin=0.12in, label={}]
+  \small{\item{
+    \textbf{Backend \& APIs}{: Python, FastAPI, Django, Flask, SQLAlchemy, REST APIs, gRPC, WebSockets, asyncio, Microservices, System Design (HLD/LLD, Caching, Rate Limiting), Java} \\
+    \textbf{Generative AI \& RAG}{: LangGraph, LangChain, MCP (Model Context Protocol), OpenAI, Gemini, Hugging Face, NVIDIA NIM, Hybrid RAG (ChromaDB, BM25), FlashRank Reranking, Agent Memory, Guardrails} \\
+    \textbf{Streaming \& Databases}{: Apache Kafka (Strimzi, Partitioning, Producers/Consumers), PostgreSQL, MySQL, MongoDB, SQL, Schema Design \& Indexing} \\
+    \textbf{Cloud, DevOps \& Security}{: Kubernetes, Helm, Docker, AWS, Azure, Cloudflare, OCI, Linux, GitHub Actions (CI/CD), Prometheus, mTLS, Git}
+  }}
+\end{itemize}
+
+%-----------EXPERIENCE-----------------
+\section{Experience}
+\resumeSubHeadingListStart
+
+  \resumeSubheading
+    {Tata Consultancy Services}{Mumbai, India}
+    {System Engineer C1 (Backend \& AI)}{Nov 2024 -- Present}
+    \resumeItemListStart
+      \resumeItem{Event Streaming (Ericsson ESPE)}
+        {Deployed and tuned Strimzi Apache Kafka on Kubernetes with Helm for Ericsson's stream-processing platform handling 1M+ events/sec across 20+ topics, covering cluster configuration, partitioning, and throughput scaling.}
+      \resumeItem{Agentic AI \& RAG}
+        {Built Model Context Protocol (MCP) tool-using AI agents and a semantic RAG search service (ChromaDB, OpenAI embeddings) over 500+ engineering documents. }
+      \resumeItem{Caching \& Performance (Ericsson ENM)}
+        {Cut bandwidth usage by 60\%+ by implementing a Java caching layer for high-volume network events from telecom nodes.}
+      \resumeItem{Observability \& Security}
+        {Built a Prometheus dashboard for Kafka metrics reducing consumer-lag detection time by 50\% and secured inter-service traffic with mTLS while troubleshooting production Linux/TCP/IP issues.}
+    \resumeItemListEnd
+
+  \resumeSubheading
+    {Scrobits Technologies}{Pune, India}
+    {Python Backend Engineering Intern}{Jun 2024 -- Nov 2024}
+    \resumeItemListStart
+      \resumeItem{APIs \& Databases}
+        {Engineered 10+ RESTful endpoints with Django and designed SQL and MongoDB schemas for automated content-publishing pipelines, replacing manual blog-writing workflows.}
+      \resumeItem{GenAI \& LLM Services}
+        {Built Python backend services integrating ChatGPT and Gemini APIs and delivered 5+ client GenAI/RAG proof-of-concepts; led internal sessions on LLM fundamentals.}
+    \resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+%-----------PROJECTS-----------------
+\section{Projects}
+\resumeSubHeadingListStart
+
+  \resumeProjectHeading
+    {\textbf{Nexyn -- Cognitive Memory Middleware for AI Agents} $|$ \href{https://github.com/vinay-ghate/nexyn-core}{github.com/vinay-ghate/nexyn-core}}{2026}
+  \vspace{-4pt}
+  \item\small{\emph{Stack: Python, FastAPI, asyncio, PostgreSQL, Cognee, RAG, NVIDIA NIM}}
+  \resumeItemListStart
+    \item\small{Designed an async FastAPI and PostgreSQL service implementing a four-layer memory pipeline (sensory buffer, evaluator, consolidator, decay) to give AI agents short-term state and long-term persistence.}
+    \item\small{Scored memory importance with Llama 3.1 8B on NVIDIA NIM so trivial memories decay while recalled ones reinforce, improving recall relevance by 25\% in evaluation tests.}
+  \resumeItemListEnd
+
+  \resumeProjectHeading
+    {\textbf{Enigma -- Incident Root-Cause Engine} $|$ \href{https://github.com/vinay-ghate/enigma}{github.com/vinay-ghate/enigma}}{2026}
+  \vspace{-4pt}
+  \item\small{\emph{Stack: Python, FastAPI, LangGraph, OpenTelemetry / Logs, SQL}}
+  \resumeItemListStart
+    \item\small{Built an automated incident root-cause analysis (RCA) engine correlating distributed service logs, metrics, and deployment events to isolate failure origins and generate diagnostic summaries.}
+    \item\small{Implemented multi-step diagnostic agent workflows to trace cascading errors across backend services and surface actionable remediation steps.}
+  \resumeItemListEnd
+
+  \resumeProjectHeading
+    {\textbf{Chikistalaya -- Grounded Medical Q\&A \& Healthcare Platform} $|$ \href{https://github.com/vinay-ghate/Chikistalaya}{github.com/vinay-ghate/Chikistalaya}}{2025}
+  \vspace{-4pt}
+  \item\small{\emph{Stack: Python, TypeScript, LangChain, ChromaDB, BM25, FlashRank, Docker}}
+  \resumeItemListStart
+    \item\small{Built a grounded medical Q\&A assistant using hybrid retrieval (ChromaDB, BM25) and FlashRank cross-encoder reranking over official FDA drug labels and clinical guidelines with inline citations and safety guardrails.}
+    \item\small{Engineered containerized backend APIs enforcing tenant-level data isolation, role-based access control, and governance alongside external provider lookup workflows.}
+  \resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+%-----------EDUCATION-----------------
+\section{Education}
+\resumeSubHeadingListStart
+  \resumeSubheading
+    {Zeal College of Engineering, Pune University}{Pune, India}
+    {B.E. in Computer Engineering + Honors in Cyber Security (CGPA: 8.41)}{2024}
+\resumeSubHeadingListEnd
+
+%-----------CERTIFICATIONS-----------------
+\section{Certifications \& Achievements}
+\begin{itemize}[leftmargin=0.12in, label={}]
+  \small{\item{
+    $\bullet$ \textbf{Certifications:} Confluent Data Streaming Engineer $|$ AWS Certified AI Practitioner $|$ OCI 2025 Generative AI Professional $|$ Microsoft Certified: Azure AI Fundamentals \\
+    $\bullet$ \textbf{Achievements:} Amazon ML Summer School '23 $|$ Co-founder, Google Developer Student Clubs (GDSC) ZCOER \& IODump Communities
+  }}
+\end{itemize}
+
+\end{document}
